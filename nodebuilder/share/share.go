@@ -2,6 +2,7 @@ package share
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/tendermint/tendermint/types"
 
@@ -91,6 +92,7 @@ func (api *API) GetShare(ctx context.Context, height uint64, row, col int) (libs
 }
 
 func (api *API) GetEDS(ctx context.Context, height uint64) (*rsmt2d.ExtendedDataSquare, error) {
+	fmt.Println("internal GetEDS")
 	return api.Internal.GetEDS(ctx, height)
 }
 
@@ -122,6 +124,10 @@ func (m module) GetShare(ctx context.Context, height uint64, row, col int) (libs
 
 func (m module) GetEDS(ctx context.Context, height uint64) (*rsmt2d.ExtendedDataSquare, error) {
 	header, err := m.hs.GetByHeight(ctx, height)
+	fmt.Println("Hello World!")
+	fmt.Println("GetEDS")
+	fmt.Println(height)
+	fmt.Println(header)
 	if err != nil {
 		return nil, err
 	}
