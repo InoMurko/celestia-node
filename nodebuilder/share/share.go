@@ -92,8 +92,8 @@ func (api *API) GetShare(ctx context.Context, height uint64, row, col int) (libs
 }
 
 func (api *API) GetEDS(ctx context.Context, height uint64) (*rsmt2d.ExtendedDataSquare, error) {
-	fmt.Println("internal GetEDS")
-	return api.Internal.GetEDS(ctx, height)
+	fmt.Println("internal GetEDS refactored")
+	return api.GetEDS(ctx, height)
 }
 
 func (api *API) GetRange(ctx context.Context, height uint64, start, end int) (*GetRangeResult, error) {
